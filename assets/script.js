@@ -79,7 +79,6 @@ function generatePassword() {
 
       finalpwd = pwdArray.join("")
 
-      console.log(finalpwd);
       // Shows generated password
       return finalpwd;
 
