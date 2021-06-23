@@ -18,24 +18,24 @@ function generatePassword() {
 
   // Beginning of prompt
   var length = window.prompt("Enter the amount of characters to be in the passoword: ", "min: 8 max: 128");
-  if (length > 8 && length < 128) {
-    let input = window.alert("Include lowercase letters?");
+  if (length >= 8 && length <= 128) {
+    let input = window.prompt("Include lowercase letters?");
       // If statements to add to ranArray based on input
       if(input === true) {
         ranArray = ranArray.concat(lwrCase);
         var q1 = true;
       }
-      input = window.alert("Include uppercase letters?");
+      input = window.prompt("Include uppercase letters?");
       if(input === true) {
         ranArray = ranArray.concat(uprCase);
         var q2 = true;
       }
-      input = window.alert("Include numbers?");
+      input = window.prompt("Include numbers?");
       if(input === true) {
         ranArray = ranArray.concat(numbers);
         var q3 = true;
       }
-      input = window.alert("Include special characters?");
+      input = window.prompt("Include special characters?");
       if(input === true) {
         ranArray = ranArray.concat(specChar);
         var q4 = true;
@@ -71,6 +71,13 @@ function generatePassword() {
       pwdArray = pwdArray.concat(startingArray);
 
       // Adding values based on length entered
+      for(let i = 0; i = length; i++) {
+        ranNum = Math.floor(Math.random() * ranArray.length);
+        ranChar = ranArray[ranNum];
+        pwdArray.splice(0, ranChar);
+      }
+      // Shows generated password
+      window.alert("Generated password: " + pwdArray.toString);
   // Output if invald length entered.
   } else {
     window.alert("Invald length entered");
