@@ -19,65 +19,66 @@ function generatePassword() {
   // Beginning of prompt
   var length = window.prompt("Enter the amount of characters to be in the passoword: ", "min: 8 max: 128");
   if (length >= 8 && length <= 128) {
-    let input = window.prompt("Include lowercase letters?");
+    length--;
+    let input = window.confirm("Include lowercase letters?");
       // If statements to add to ranArray based on input
       if(input === true) {
         ranArray = ranArray.concat(lwrCase);
         var q1 = true;
       }
-      input = window.prompt("Include uppercase letters?");
+    input = window.confirm("Include uppercase letters?");
       if(input === true) {
         ranArray = ranArray.concat(uprCase);
         var q2 = true;
       }
-      input = window.prompt("Include numbers?");
+    input = window.confirm("Include numbers?");
       if(input === true) {
         ranArray = ranArray.concat(numbers);
         var q3 = true;
       }
-      input = window.prompt("Include special characters?");
+    input = window.confirm("Include special characters?");
       if(input === true) {
         ranArray = ranArray.concat(specChar);
         var q4 = true;
       }
-      
       // Beginning of pwd generation
       // Start with making sure all criteria is used
       if(q1 === true) {
         length--;
         ranNum = Math.floor(Math.random() * 26);
         ranChar = lwrCase[ranNum];
-        startingArray.splice(0, ranChar);
+        startingArray.splice(0, 0, ranChar);
       }
       if(q2 === true) {
         length--;
         ranNum = Math.floor(Math.random() * 26);
         ranChar = uprCase[ranNum];
-        startingArray.splice(0, ranChar);
+        startingArray.splice(0, 0, ranChar);
       }
       if(q3 === true) {
         length--;
         ranNum = Math.floor(Math.random() * 10);
         ranChar = numbers[ranNum];
-        startingArray.splice(0, ranChar);
+        startingArray.splice(0, 0, ranChar);
       }
       if(q4 === true) {
         length--;
         ranNum = Math.floor(Math.random() * 21);
         ranChar = specChar[ranNum];
-        startingArray.splice(0, ranChar);
+        startingArray.splice(0, 0, ranChar);
       }
 
       pwdArray = pwdArray.concat(startingArray);
 
       // Adding values based on length entered
-      for(let i = 0; i = length; i++) {
+      for(let i = 0; i <= length; i++) {
         ranNum = Math.floor(Math.random() * ranArray.length);
         ranChar = ranArray[ranNum];
-        pwdArray.splice(0, ranChar);
-      }
+        pwdArray.splice(0, 0, ranChar);
+      } 
+      console.log(pwdArray);
       // Shows generated password
-      window.alert("Generated password: " + pwdArray.toString);
+      window.alert(JSON.stringify(pwdArray));
   // Output if invald length entered.
   } else {
     window.alert("Invald length entered");
