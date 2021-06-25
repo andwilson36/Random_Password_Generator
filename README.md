@@ -15,6 +15,7 @@ Link to the completed website: https://andwilson36.github.io/Random_Password_Gen
 - All of the selected criteria is included in the password.
 
 - The password is displayed clearly so that the user could simply copy and paste.
+
 ```
 
 ## Images
